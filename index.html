@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Interactive Narrative Structure — p5.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.9.3/lib/p5.min.js"></script>
+  <style>
+    :root { --bg:#0b0c10; --panel:#111319; --accent:#7aa2f7; --text:#e6e6e6; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(60% 80% at 40% 30%, #0e1016, var(--bg));
+      color: var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      display: grid; grid-template-rows: auto 1fr auto; gap: 8px;
+    }
+    header { padding:16px clamp(12px,4vw,28px); display:flex; align-items:center; justify-content:space-between; }
+    h1 { margin:0; font-weight:650; font-size:clamp(18px,2.4vw,28px); }
+    .controls { display:flex; gap:8px; flex-wrap:wrap; }
+    button {
+      background: linear-gradient(180deg,#1a1e27,#12151c); color:var(--text);
+      border:1px solid #222838; border-radius:12px; padding:10px 14px; font-size:14px;
+      cursor:pointer; transition: transform .06s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    button:hover { border-color:var(--accent); transform: translateY(-1px); }
+    button.primary { background: linear-gradient(180deg,#2a3350,#1a2034); border-color:#33426d; }
+    .wrap { padding: 0 clamp(10px,3.5vw,24px) 16px; }
+    #canvas-holder { border-radius:14px; overflow:hidden; outline:1px solid #202536; background:var(--panel); }
+    footer { opacity:.7; font-size:12px; text-align:center; padding:8px; }
+    a { color:var(--accent); text-decoration:none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Interactive Narrative Structure</h1>
+    <div class="controls">
+      <button id="lockBtn" class="primary">click for narrative structure</button>
+      <button id="resetBtn">reset</button>
+      <button id="saveBtn">save image</button>
+    </div>
+  </header>
+  <div class="wrap">
+    <div id="canvas-holder"></div>
+  </div>
+  <footer>Built with <a href="https://p5js.org/" target="_blank">p5.js</a></footer>
+
+  <script src="narrative.js"></script>
+</body>
+</html>
